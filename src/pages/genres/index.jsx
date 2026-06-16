@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Compass } from "lucide-react";
-import { GenreCard } from "@/components/movies/genre-card";
+import { GenreCard } from "@/pages/genres/genre-card";
 
 const GENRES = [
   { id: 28, name: "Action" },

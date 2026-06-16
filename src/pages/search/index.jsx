@@ -3,8 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search as SearchIcon, Film, Tv, Grid } from "lucide-react";
 import { searchContent, searchMovies, searchTV } from "@/services/tmdb";
-import { MovieGrid } from "@/components/movies/movie-grid";
-import { SearchBar } from "@/components/movies/search-bar";
+import { MovieGrid } from "@/components/movie-grid";
+import { SearchBar } from "@/components/search-bar";
 import { useDebounce } from "@/hooks/use-debounce";
 
 const FILTER_OPTIONS = [

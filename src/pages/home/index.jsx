@@ -18,8 +18,8 @@ import {
   getBackdropUrl,
   getYear,
 } from "@/services/tmdb";
-import { MovieCard } from "@/components/movies/movie-card";
-import { SearchBar } from "@/components/movies/search-bar";
+import { MovieCard } from "@/components/movie-card";
+import { SearchBar } from "@/components/search-bar";
 import { SectionSkeleton } from "@/components/ui/skeleton";
 import { useWatchlist } from "@/contexts/watchlist-context";
 

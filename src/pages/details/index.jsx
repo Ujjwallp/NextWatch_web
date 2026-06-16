@@ -27,9 +27,9 @@ import {
   formatRuntime,
   formatRating,
 } from "@/services/tmdb";
-import { StreamingProviders } from "@/components/movies/streaming-providers";
-import { CastCard } from "@/components/movies/cast-card";
-import { MovieCard } from "@/components/movies/movie-card";
+import { StreamingProviders } from "@/pages/details/streaming-providers";
+import { CastCard } from "@/pages/details/cast-card";
+import { MovieCard } from "@/components/movie-card";
 import { DetailsSkeleton } from "@/components/ui/skeleton";
 import { ErrorState } from "@/components/ui/empty-state";
 import { Badge } from "@/components/ui/badge";

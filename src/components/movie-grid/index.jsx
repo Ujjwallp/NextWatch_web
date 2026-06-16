@@ -1,4 +1,4 @@
-import { MovieCard } from "@/components/movies/movie-card";
+import { MovieCard } from "@/components/movie-card";
 import { SectionSkeleton } from "@/components/ui/skeleton";
 import { EmptyState, ErrorState } from "@/components/ui/empty-state";
 

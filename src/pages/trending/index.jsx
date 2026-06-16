@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, Flame, Calendar } from "lucide-react";
 import { getTrending } from "@/services/tmdb";
-import { MovieGrid } from "@/components/movies/movie-grid";
+import { MovieGrid } from "@/components/movie-grid";
 
 export const Trending = () => {
   const [timeWindow, setTimeWindow] = useState("day");

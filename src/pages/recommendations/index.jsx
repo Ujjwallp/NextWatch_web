@@ -7,7 +7,7 @@ import {
   getTopRatedByGenre,
   getTrending,
 } from "@/services/tmdb";
-import { MovieGrid } from "@/components/movies/movie-grid";
+import { MovieGrid } from "@/components/movie-grid";
 import { SectionSkeleton } from "@/components/ui/skeleton";
 
 const GENRE_EMOJIS = {
