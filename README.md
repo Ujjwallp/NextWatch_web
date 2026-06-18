@@ -172,14 +172,6 @@ npm run preview
 
 ---
 
-## 🔮 Future Roadmap
-
-- **🎭 Enhanced Filter Matrices:** Allow users to filter recommendations simultaneously by genre, release year range, and minimum rating.
-- **🤖 Server-side Render / Static Site Generation:** Migrating pages to a framework like Next.js to leverage SSR/ISR for SEO optimization.
-- **🔄 Localized Internationalization (i18n):** Add multi-language translation bindings for media overviews and metadata labels.
-
----
-
 ## 👨‍💻 Maintainers & Creators
 
 - **Ujjwal Prakash** — Creator & Core Developer ([GitHub Profile](https://github.com/Ujjwallp))
