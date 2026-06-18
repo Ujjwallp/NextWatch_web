@@ -6,9 +6,9 @@
 [![TMDB API](https://img.shields.io/badge/TMDB_API-Integration-01B4E4?style=flat-square&logo=themoviedb)](https://www.themoviedb.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-NextWatch is a client-side, movie and TV show discovery platform. Leveraging the TMDB API, it allows users to search, filter, explore trending media, view streaming availability, and manage their personal watchlists dynamically.
+NextWatch is a simple and beautiful movie and TV show discovery app built using React. It uses the TMDB API to fetch data, allowing users to search for movies, see what's trending, find out where to stream them, and save favorites to a personal watchlist.
 
-Designed with a high-fidelity glassmorphism user interface and smooth, GPU-accelerated micro-animations, it serves as a showcase for modern React 19 architecture, CSS transitions, and client-side state optimization.
+I built this project to practice my frontend skills, specifically focusing on modern React, Tailwind CSS for styling, and creating a nice glassmorphism UI with smooth animations.
 
 ---
 
