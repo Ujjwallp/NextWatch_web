@@ -6,6 +6,8 @@
 [![TMDB API](https://img.shields.io/badge/TMDB_API-Integration-01B4E4?style=flat-square&logo=themoviedb)](https://www.themoviedb.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
+![NextWatch Preview](docs/screenshots/preview.png)
+
 NextWatch is a client-side, production-grade movie and TV show discovery platform. Leveraging the TMDB API, it allows users to search, filter, explore trending media, view streaming availability, and manage their personal watchlists dynamically.
 
 Designed with a high-fidelity glassmorphism user interface and smooth, GPU-accelerated micro-animations, it serves as a showcase for modern React 19 architecture, CSS transitions, and client-side state optimization.
@@ -71,17 +73,31 @@ graph TD
 ```text
 src/
 ├── components/
-│   ├── layout/      # App shell components (Navbar, Footer, Layout, ApiKeyBanner)
-│   ├── movies/      # Domain-specific modules (MovieCard, MovieGrid, SearchBar, StreamingProviders)
-│   └── ui/          # Reusable design tokens (Button, Badge, Skeleton loaders)
-├── contexts/        # React Context Providers (Watchlist state & statistics)
-├── hooks/           # General custom hooks (useDebounce)
-├── pages/           # Page-level route views (Home, Genres, Details, Search)
-├── services/        # Third-party integrations (TMDB API client wrapper)
-├── styles/          # Global stylesheets & design configurations
-├── utils/           # Shared helpers (tailwind utility merge wrapper)
-├── App.jsx          # Route definitions
-└── main.jsx         # Application entry point
+│   ├── layout/          # Global layout structure, navbar, scroll restoration
+│   ├── movie-card/      # Shared components
+│   ├── movie-grid/      # Shared components
+│   ├── search-bar/      # Shared components
+│   └── ui/              # Atom-level reusable UI components
+├── contexts/
+│   └── watchlist-context.jsx
+├── hooks/
+│   └── use-debounce.js
+├── pages/
+│   ├── details/         # Details Page Feature (colocated cast-card, streaming-providers)
+│   ├── genres/          # Genres Page Feature (colocated genre-card)
+│   ├── home/            # Home Dashboard Page Feature
+│   ├── not-found/       # 404 Routing Page
+│   ├── recommendations/ # Recommendations filtering controller
+│   ├── search/          # Search interface
+│   ├── trending/        # Trending media dashboard
+│   ├── watched/         # Watched history library view
+│   └── watchlist/       # Watchlist library view
+├── services/
+│   └── tmdb.js
+├── styles/
+│   └── index.css
+└── utils/
+    └── cn.js
 ```
 
 ---
