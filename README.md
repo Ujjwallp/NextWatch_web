@@ -12,6 +12,8 @@ NextWatch is a client-side, production-grade movie and TV show discovery platfor
 
 Designed with a high-fidelity glassmorphism user interface and smooth, GPU-accelerated micro-animations, it serves as a showcase for modern React 19 architecture, CSS transitions, and client-side state optimization.
 
+🔗 **Live Preview:** [https://next-watch-web.vercel.app/](https://next-watch-web.vercel.app/)
+
 ---
 
 ## 🏗️ Architecture Overview
