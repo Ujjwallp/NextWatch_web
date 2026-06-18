@@ -136,12 +136,10 @@ export const GenreCard = ({ genre, index = 0 }) => {
             cursor-pointer
           `}
         >
-          {/* Gradient overlay */}
           <div
             className={`absolute inset-0 bg-gradient-to-br ${config.gradient} opacity-70 group-hover:opacity-90 transition-opacity duration-300`}
           />
 
-          {/* Noise texture */}
           <div
             className="absolute inset-0 opacity-5"
             style={{
@@ -149,7 +147,6 @@ export const GenreCard = ({ genre, index = 0 }) => {
             }}
           />
 
-          {/* Content */}
           <div className="relative z-10 p-6 min-h-[160px] flex flex-col justify-between">
             <div>
               <span className="text-4xl mb-3 block">{config.emoji}</span>
@@ -183,7 +180,6 @@ export const GenreCard = ({ genre, index = 0 }) => {
             </div>
           </div>
 
-          {/* Shine effect */}
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             style={{
@@ -196,5 +192,3 @@ export const GenreCard = ({ genre, index = 0 }) => {
     </motion.div>
   );
 };
-
-export { GENRE_CONFIG, GENRE_DESCRIPTIONS };

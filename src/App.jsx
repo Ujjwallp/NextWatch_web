@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { WatchlistProvider } from "@/contexts/watchlist-context";
-import { Layout } from "@/components/layout/layout";
-import { ScrollToTop } from "@/components/layout/scroll-to-top";
+import { WatchlistProvider } from "@/context/watchlist-context";
+import { Layout } from "@/layouts/layout";
+import { ScrollToTop } from "@/layouts/scroll-to-top";
 import { Home } from "@/pages/home";
 import { Genres } from "@/pages/genres";
 import { Recommendations } from "@/pages/recommendations";

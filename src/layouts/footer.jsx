@@ -5,7 +5,6 @@ export const Footer = () => (
   <footer className="bg-[#09090B] border-t border-white/5 mt-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Brand */}
         <div className="flex flex-col items-center md:items-start gap-1">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 bg-red-600 rounded-lg flex items-center justify-center">
@@ -18,7 +17,6 @@ export const Footer = () => (
           <p className="text-zinc-500 text-xs">Movie Discovery Platform</p>
         </div>
 
-        {/* Links */}
         <div className="flex items-center gap-6 text-sm text-zinc-500">
           <Link to="/" className="hover:text-white transition-colors">
             Home
@@ -34,7 +32,6 @@ export const Footer = () => (
           </Link>
         </div>
 
-        {/* TMDB Credit */}
         <div className="flex flex-col items-center md:items-end gap-1 text-xs text-zinc-600">
           <span>
             Powered by{" "}

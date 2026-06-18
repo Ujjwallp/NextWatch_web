@@ -1,8 +1,8 @@
-export const Skeleton = ({ className = "" }) => (
+const Skeleton = ({ className = "" }) => (
   <div className={`skeleton ${className}`} />
 );
 
-export const MovieCardSkeleton = () => (
+const MovieCardSkeleton = () => (
   <div className="rounded-xl overflow-hidden bg-[#18181B] border border-white/5">
     <Skeleton className="aspect-[2/3] w-full" />
     <div className="p-3 space-y-2">

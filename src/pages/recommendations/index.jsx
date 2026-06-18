@@ -25,7 +25,6 @@ const GENRE_EMOJIS = {
   Drama: "🎭",
 };
 
-// Map genre names to TV genre IDs
 const TV_GENRE_MAP = {
   28: 10759, // Action -> Action & Adventure
   53: 9648, // Thriller -> Mystery
@@ -192,7 +191,6 @@ export const Recommendations = () => {
 
   return (
     <div className="min-h-screen pt-20 pb-20">
-      {/* Header */}
       <div className="bg-gradient-to-b from-[#18181B]/80 to-transparent border-b border-white/5 mb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
           <Link
@@ -224,7 +222,6 @@ export const Recommendations = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Most Popular */}
         <Section
           title="Most Popular"
           icon={Flame}
@@ -237,7 +234,6 @@ export const Recommendations = () => {
           onMediaTypeChange={setPopularMediaType}
         />
 
-        {/* Top Rated */}
         <Section
           title="Top Rated"
           icon={Star}
@@ -250,7 +246,6 @@ export const Recommendations = () => {
           onMediaTypeChange={setTopRatedMediaType}
         />
 
-        {/* Trending */}
         <div className="mb-14">
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3 mb-6">
             <TrendingUp className="w-6 h-6 text-blue-400" />

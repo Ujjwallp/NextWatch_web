@@ -33,7 +33,7 @@ import { MovieCard } from "@/components/movie-card";
 import { DetailsSkeleton } from "@/components/ui/skeleton";
 import { ErrorState } from "@/components/ui/empty-state";
 import { Badge } from "@/components/ui/badge";
-import { useWatchlist } from "@/contexts/watchlist-context";
+import { useWatchlist } from "@/context/watchlist-context";
 
 const TrailerModal = ({ videoKey, onClose }) => (
   <motion.div
@@ -58,7 +58,6 @@ const TrailerModal = ({ videoKey, onClose }) => (
         className="w-full h-full border-0"
       />
 
-      {/* Fallback link to open in new tab */}
       <a
         href={`https://www.youtube.com/watch?v=${videoKey}`}
         target="_blank"
@@ -213,7 +212,6 @@ export const Details = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Backdrop Hero */}
       <div className="relative h-[55vh] sm:h-[65vh] overflow-hidden">
         {backdropUrl ? (
           <>
@@ -230,7 +228,6 @@ export const Details = () => {
           <div className="w-full h-full bg-zinc-900" />
         )}
 
-        {/* Back button */}
         <div className="absolute top-20 left-4 sm:left-6">
           <Link
             to={-1}
@@ -246,10 +243,8 @@ export const Details = () => {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 -mt-32 relative z-10 pb-20">
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
-          {/* Poster */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -270,14 +265,12 @@ export const Details = () => {
             </div>
           </motion.div>
 
-          {/* Details */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="flex-1 min-w-0"
           >
-            {/* Media Type */}
             <div className="flex items-center gap-2 mb-3">
               <span
                 className={`text-xs font-bold px-2 py-0.5 rounded-md uppercase ${
@@ -295,19 +288,16 @@ export const Details = () => {
               )}
             </div>
 
-            {/* Title */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-3 leading-tight">
               {title}
             </h1>
 
-            {/* Tagline */}
             {details.tagline && (
               <p className="text-zinc-400 italic text-base mb-4">
                 "{details.tagline}"
               </p>
             )}
 
-            {/* Meta row */}
             <div className="flex flex-wrap items-center gap-4 mb-5 text-sm">
               {rating !== "N/A" && ratingNum > 0 && (
                 <div
@@ -347,7 +337,6 @@ export const Details = () => {
               )}
             </div>
 
-            {/* Genres */}
             {genres.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-6">
                 {genres.map((g) => (
@@ -358,12 +347,10 @@ export const Details = () => {
               </div>
             )}
 
-            {/* Overview */}
             <p className="text-zinc-300 text-base leading-relaxed mb-8 max-w-2xl">
               {details.overview || "No overview available."}
             </p>
 
-            {/* Action Buttons */}
             <div className="flex flex-wrap gap-3">
               {trailerKey && (
                 <motion.button
@@ -436,7 +423,6 @@ export const Details = () => {
               )}
             </div>
 
-            {/* Additional info */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/5">
               {details.original_language && (
                 <div>
@@ -482,7 +468,6 @@ export const Details = () => {
           </motion.div>
         </div>
 
-        {/* Streaming Providers */}
         {providers && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -507,7 +492,6 @@ export const Details = () => {
           </motion.div>
         )}
 
-        {/* Cast */}
         {cast.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -533,7 +517,6 @@ export const Details = () => {
           </motion.div>
         )}
 
-        {/* Recommendations */}
         {recommendations.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -553,7 +536,6 @@ export const Details = () => {
         )}
       </div>
 
-      {/* Trailer Modal */}
       <AnimatePresence>
         {showTrailer && trailerKey && (
           <TrailerModal

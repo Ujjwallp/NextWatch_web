@@ -50,33 +50,33 @@ export const Search = () => {
       setLoading(true);
       setError(null);
       try {
-        let data;
+        let searchResults;
         if (filter === "movie") {
-          data = await searchMovies(debouncedQuery, page);
-          data.results = (data.results || []).map((r) => ({
+          searchResults = await searchMovies(debouncedQuery, page);
+          searchResults.results = (searchResults.results || []).map((r) => ({
             ...r,
             media_type: "movie",
           }));
         } else if (filter === "tv") {
-          data = await searchTV(debouncedQuery, page);
-          data.results = (data.results || []).map((r) => ({
+          searchResults = await searchTV(debouncedQuery, page);
+          searchResults.results = (searchResults.results || []).map((r) => ({
             ...r,
             media_type: "tv",
           }));
         } else {
-          data = await searchContent(debouncedQuery, page);
-          data.results = (data.results || []).filter(
+          searchResults = await searchContent(debouncedQuery, page);
+          searchResults.results = (searchResults.results || []).filter(
             (r) => r.media_type !== "person",
           );
         }
 
         if (page === 1) {
-          setResults(data.results || []);
+          setResults(searchResults.results || []);
         } else {
-          setResults((prev) => [...prev, ...(data.results || [])]);
+          setResults((prev) => [...prev, ...(searchResults.results || [])]);
         }
-        setTotalResults(data.total_results || 0);
-        setTotalPages(data.total_pages || 0);
+        setTotalResults(searchResults.total_results || 0);
+        setTotalPages(searchResults.total_pages || 0);
 
 
         setSearchParams({ q: debouncedQuery });
@@ -97,7 +97,6 @@ export const Search = () => {
   return (
     <div className="min-h-screen pt-24 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -114,7 +113,6 @@ export const Search = () => {
             Search across thousands of movies and TV shows.
           </p>
 
-          {/* Search Input */}
           <div className="max-w-2xl">
             <div className="relative">
               <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400 z-10" />
@@ -133,7 +131,6 @@ export const Search = () => {
           </div>
         </motion.div>
 
-        {/* Filters */}
         <div className="flex gap-2 mb-6">
           {FILTER_OPTIONS.map(({ value, label, icon: Icon }) => (
             <button
@@ -154,7 +151,6 @@ export const Search = () => {
           ))}
         </div>
 
-        {/* Results info */}
         {query && !loading && totalResults > 0 && (
           <p className="text-zinc-500 text-sm mb-6">
             Found{" "}
@@ -165,7 +161,6 @@ export const Search = () => {
           </p>
         )}
 
-        {/* Empty / No query state */}
         {!query && (
           <div className="flex flex-col items-center justify-center py-20 text-center">
             <div className="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-5">
@@ -180,7 +175,6 @@ export const Search = () => {
           </div>
         )}
 
-        {/* Results Grid */}
         {query && (
           <MovieGrid
             items={results}
@@ -191,7 +185,6 @@ export const Search = () => {
           />
         )}
 
-        {/* Load more */}
         {!loading && page < totalPages && results.length > 0 && (
           <div className="flex justify-center mt-10">
             <motion.button
@@ -205,7 +198,6 @@ export const Search = () => {
           </div>
         )}
 
-        {/* Loading more indicator */}
         {loading && page > 1 && (
           <div className="flex justify-center mt-10">
             <div className="w-8 h-8 border-2 border-red-600 border-t-transparent rounded-full animate-spin" />

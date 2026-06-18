@@ -12,7 +12,7 @@ import {
   BarChart3,
   Filter,
 } from "lucide-react";
-import { useWatchlist } from "@/contexts/watchlist-context";
+import { useWatchlist } from "@/context/watchlist-context";
 import { getImageUrl, getYear } from "@/services/tmdb";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Button } from "@/components/ui/button";
@@ -65,7 +65,6 @@ const WatchedItemCard = ({ item, onRemove }) => {
       className="glass-card glass-card-hover rounded-xl overflow-hidden group"
     >
       <Link to={`/details/${mediaType}/${item.id}`} className="flex gap-4 p-4">
-        {/* Poster */}
         <div className="flex-shrink-0 w-16 h-24 rounded-lg overflow-hidden bg-zinc-800 border border-white/5">
           {poster ? (
             <img
@@ -85,7 +84,6 @@ const WatchedItemCard = ({ item, onRemove }) => {
           )}
         </div>
 
-        {/* Info */}
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2 mb-1">
             <h3 className="text-white font-semibold text-sm line-clamp-2 leading-snug">
@@ -127,7 +125,6 @@ const WatchedItemCard = ({ item, onRemove }) => {
         </div>
       </Link>
 
-      {/* Remove button */}
       <div className="px-4 pb-4 flex justify-end">
         <button
           onClick={(e) => {
@@ -178,7 +175,6 @@ export const Watched = () => {
   return (
     <div className="min-h-screen pt-24 pb-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -198,7 +194,6 @@ export const Watched = () => {
           </p>
         </motion.div>
 
-        {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-8">
           <StatCard
             icon={BarChart3}
@@ -220,10 +215,8 @@ export const Watched = () => {
           />
         </div>
 
-        {/* Search & Filters */}
         {watched.length > 0 && (
           <div className="flex flex-col sm:flex-row gap-3 mb-6">
-            {/* Search */}
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
               <input
@@ -235,7 +228,6 @@ export const Watched = () => {
               />
             </div>
 
-            {/* Type filter */}
             <div className="flex gap-2">
               {[
                 { value: "all", label: "All", icon: Filter },
@@ -257,7 +249,6 @@ export const Watched = () => {
               ))}
             </div>
 
-            {/* Sort */}
             <select
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
@@ -271,14 +262,12 @@ export const Watched = () => {
           </div>
         )}
 
-        {/* Results count */}
         {watched.length > 0 && filtered.length !== watched.length && (
           <p className="text-zinc-500 text-sm mb-4">
             Showing {filtered.length} of {watched.length} items
           </p>
         )}
 
-        {/* Empty State */}
         {watched.length === 0 && (
           <EmptyState
             icon="watched"
@@ -297,7 +286,6 @@ export const Watched = () => {
           />
         )}
 
-        {/* No search results */}
         {watched.length > 0 && filtered.length === 0 && (
           <EmptyState
             icon="search"
@@ -306,7 +294,6 @@ export const Watched = () => {
           />
         )}
 
-        {/* Watched Grid */}
         <AnimatePresence mode="popLayout">
           {filtered.length > 0 && (
             <motion.div
@@ -324,7 +311,6 @@ export const Watched = () => {
           )}
         </AnimatePresence>
 
-        {/* Clear all */}
         {watched.length > 0 && (
           <motion.div
             initial={{ opacity: 0 }}

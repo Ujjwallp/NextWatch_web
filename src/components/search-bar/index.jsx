@@ -122,7 +122,6 @@ export const SearchBar = ({
         </div>
       </form>
 
-      {/* Dropdown */}
       <AnimatePresence>
         {showDropdown && results.length > 0 && (
           <motion.div

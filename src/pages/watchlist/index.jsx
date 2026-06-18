@@ -13,7 +13,7 @@ import {
   Filter,
   CheckCircle2,
 } from "lucide-react";
-import { useWatchlist } from "@/contexts/watchlist-context";
+import { useWatchlist } from "@/context/watchlist-context";
 import { getImageUrl, getYear } from "@/services/tmdb";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Button } from "@/components/ui/button";
@@ -94,7 +94,6 @@ const WatchlistItemCard = ({
       className="glass-card glass-card-hover rounded-xl overflow-hidden group"
     >
       <Link to={`/details/${mediaType}/${item.id}`} className="flex gap-4 p-4">
-        {/* Poster */}
         <div className="flex-shrink-0 w-16 h-24 rounded-lg overflow-hidden bg-zinc-800 border border-white/5">
           {poster ? (
             <img
@@ -114,7 +113,6 @@ const WatchlistItemCard = ({
           )}
         </div>
 
-        {/* Info */}
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2 mb-1">
             <h3 className="text-white font-semibold text-sm line-clamp-2 leading-snug">
@@ -156,9 +154,7 @@ const WatchlistItemCard = ({
         </div>
       </Link>
 
-      {/* Action buttons */}
       <div className="px-4 pb-4 flex items-center justify-between gap-2">
-        {/* Mark as Watched */}
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -175,7 +171,6 @@ const WatchlistItemCard = ({
           {alreadyWatched ? "Already Watched" : "Mark as Watched"}
         </button>
 
-        {/* Remove */}
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -243,7 +238,6 @@ export const Watchlist = () => {
   return (
     <div className="min-h-screen pt-24 pb-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -263,7 +257,6 @@ export const Watchlist = () => {
           </p>
         </motion.div>
 
-        {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-8">
           <StatCard
             icon={BarChart3}
@@ -285,7 +278,6 @@ export const Watchlist = () => {
           />
         </div>
 
-        {/* Search & Filters */}
         {watchlist.length > 0 && (
           <div className="flex flex-col sm:flex-row gap-3 mb-6">
             <div className="relative flex-1">
@@ -333,14 +325,12 @@ export const Watchlist = () => {
           </div>
         )}
 
-        {/* Results count */}
         {watchlist.length > 0 && filtered.length !== watchlist.length && (
           <p className="text-zinc-500 text-sm mb-4">
             Showing {filtered.length} of {watchlist.length} items
           </p>
         )}
 
-        {/* Empty State */}
         {watchlist.length === 0 && (
           <EmptyState
             icon="bookmark"
@@ -359,7 +349,6 @@ export const Watchlist = () => {
           />
         )}
 
-        {/* No search results */}
         {watchlist.length > 0 && filtered.length === 0 && (
           <EmptyState
             icon="search"
@@ -368,7 +357,6 @@ export const Watchlist = () => {
           />
         )}
 
-        {/* Watchlist Grid */}
         <AnimatePresence mode="popLayout">
           {filtered.length > 0 && (
             <motion.div
@@ -391,7 +379,6 @@ export const Watchlist = () => {
           )}
         </AnimatePresence>
 
-        {/* Clear all */}
         {watchlist.length > 0 && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -419,7 +406,6 @@ export const Watchlist = () => {
         )}
       </div>
 
-      {/* Toast */}
       <Toast message={toastMessage} visible={toastVisible} />
     </div>
   );

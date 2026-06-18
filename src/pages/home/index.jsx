@@ -21,7 +21,7 @@ import {
 import { MovieCard } from "@/components/movie-card";
 import { SearchBar } from "@/components/search-bar";
 import { SectionSkeleton } from "@/components/ui/skeleton";
-import { useWatchlist } from "@/contexts/watchlist-context";
+import { useWatchlist } from "@/context/watchlist-context";
 
 const GENRES = [
   { id: 28, name: "Action" },
@@ -136,16 +136,13 @@ export const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background */}
         {trending.slice(0, 5).map((item, idx) => (
           <HeroSlide key={item.id} item={item} isActive={idx === heroIndex} />
         ))}
 
         {!heroItem && <div className="absolute inset-0 hero-gradient" />}
 
-        {/* Hero content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-20">
           <div className="max-w-2xl">
             <motion.div
@@ -153,7 +150,6 @@ export const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              {/* Tag */}
               <div className="inline-flex items-center gap-2 bg-red-600/20 border border-red-600/30 rounded-full px-4 py-1.5 mb-6">
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                 <span className="text-red-400 text-sm font-medium">
@@ -161,24 +157,20 @@ export const Home = () => {
                 </span>
               </div>
 
-              {/* Headline */}
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-5">
                 What Should You{" "}
                 <span className="text-gradient">Watch Tonight?</span>
               </h1>
 
-              {/* Subheading */}
               <p className="text-zinc-400 text-lg sm:text-xl leading-relaxed mb-8 max-w-xl">
                 Discover the perfect movie or show in seconds. Browse by genre,
                 explore trending titles, and find where to stream everything.
               </p>
 
-              {/* Search bar */}
               <div className="mb-8 max-w-xl">
                 <SearchBar placeholder="Search any movie or TV show..." large />
               </div>
 
-              {/* CTAs */}
               <div className="flex flex-wrap items-center gap-3">
                 <Link to="/genres">
                   <motion.button
@@ -215,7 +207,6 @@ export const Home = () => {
               </div>
             </motion.div>
 
-            {/* Hero item info */}
             {heroItem && (
               <motion.div
                 key={heroIndex}
@@ -244,7 +235,6 @@ export const Home = () => {
             )}
           </div>
 
-          {/* Hero indicator dots */}
           {trending.length > 0 && (
             <div className="absolute bottom-8 left-4 sm:left-6 flex gap-2">
               {trending.slice(0, 5).map((_, idx) => (
@@ -261,7 +251,6 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* Trending Section */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between mb-8">
           <div>
@@ -292,7 +281,6 @@ export const Home = () => {
         )}
       </section>
 
-      {/* Popular Movies Section */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between mb-8">
           <div>
@@ -317,7 +305,6 @@ export const Home = () => {
         )}
       </section>
 
-      {/* Recently Viewed */}
       {recentlyViewed.length > 0 && (
         <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between mb-8">
@@ -343,7 +330,6 @@ export const Home = () => {
         </section>
       )}
 
-      {/* Genre Quick Select */}
       <section className="py-16 bg-[#18181B]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between mb-8">
@@ -389,7 +375,6 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* Stats / Feature Highlights */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[

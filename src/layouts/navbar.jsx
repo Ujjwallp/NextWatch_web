@@ -17,7 +17,7 @@ import {
   CheckCircle2,
   Home,
 } from "lucide-react";
-import { useWatchlist } from "@/contexts/watchlist-context";
+import { useWatchlist } from "@/context/watchlist-context";
 
 
 const NAV_THEME = {
@@ -124,7 +124,6 @@ export const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
             <Link to="/" className="flex items-center gap-2 flex-shrink-0">
               <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
                 <Film className="w-4 h-4 text-white" />
@@ -134,7 +133,6 @@ export const Navbar = () => {
               </span>
             </Link>
 
-            {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-1">
               <NavItem to="/" icon={Home} exact>
                 Home
@@ -150,7 +148,6 @@ export const Navbar = () => {
               </NavItem>
             </div>
 
-            {/* Desktop Search + Watchlist */}
             <div className="hidden md:flex items-center gap-3">
               <form onSubmit={handleSearch} className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
@@ -198,7 +195,6 @@ export const Navbar = () => {
               </Link>
             </div>
 
-            {/* Mobile controls */}
             <div className="flex md:hidden items-center gap-2">
               <Link
                 to="/watchlist"
@@ -244,7 +240,6 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {mobileOpen && (
             <motion.div

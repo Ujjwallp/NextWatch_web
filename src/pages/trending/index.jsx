@@ -7,7 +7,7 @@ import { MovieGrid } from "@/components/movie-grid";
 export const Trending = () => {
   const [timeWindow, setTimeWindow] = useState("day");
   const [mediaType, setMediaType] = useState("all");
-  const [data, setData] = useState([]);
+  const [trendingMedia, setTrendingMedia] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -16,7 +16,7 @@ export const Trending = () => {
     setError(null);
     try {
       const result = await getTrending(mediaType, timeWindow);
-      setData(result.results || []);
+      setTrendingMedia(result.results || []);
     } catch (e) {
       setError(e.message);
     } finally {
@@ -31,7 +31,6 @@ export const Trending = () => {
   return (
     <div className="min-h-screen pt-24 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -49,9 +48,7 @@ export const Trending = () => {
           </p>
         </motion.div>
 
-        {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
-          {/* Time Window */}
           <div className="flex gap-2">
             <button
               onClick={() => setTimeWindow("day")}
@@ -77,7 +74,6 @@ export const Trending = () => {
             </button>
           </div>
 
-          {/* Media Type */}
           <div className="flex gap-2">
             {["all", "movie", "tv"].map((type) => (
               <button
@@ -99,16 +95,15 @@ export const Trending = () => {
           </div>
         </div>
 
-        {/* Results count */}
         {!loading && !error && (
           <p className="text-zinc-500 text-sm mb-6">
-            Showing {data.length} trending{" "}
+            Showing {trendingMedia.length} trending{" "}
             {timeWindow === "day" ? "today" : "this week"}
           </p>
         )}
 
         <MovieGrid
-          items={data}
+          items={trendingMedia}
           loading={loading}
           error={error}
           onRetry={load}

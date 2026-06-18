@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Star, Bookmark, BookmarkCheck, Play, Tv } from "lucide-react";
 import { getImageUrl, getYear } from "@/services/tmdb";
-import { useWatchlist } from "@/contexts/watchlist-context";
+import { useWatchlist } from "@/context/watchlist-context";
 
 export const MovieCard = ({ item, index = 0 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -40,7 +40,6 @@ export const MovieCard = ({ item, index = 0 }) => {
     >
       <Link to={`/details/${mediaType}/${item.id}`} className="block">
         <div className="card-shine relative rounded-xl overflow-hidden bg-[#18181B] border border-white/5 transition-all duration-300 group-hover:border-white/20 group-hover:shadow-2xl group-hover:shadow-black/50 group-hover:-translate-y-1">
-          {/* Poster */}
           <div className="relative aspect-[2/3] overflow-hidden bg-zinc-900">
             {!imageError && posterUrl ? (
               <>
@@ -69,7 +68,6 @@ export const MovieCard = ({ item, index = 0 }) => {
               </div>
             )}
 
-            {/* Overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
               <div className="w-full">
                 <div className="flex items-center gap-1.5 text-amber-400 text-xs font-medium mb-1">
@@ -82,7 +80,6 @@ export const MovieCard = ({ item, index = 0 }) => {
               </div>
             </div>
 
-            {/* Media type badge */}
             <div className="absolute top-2 left-2">
               <span
                 className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md uppercase tracking-wide ${
@@ -95,7 +92,6 @@ export const MovieCard = ({ item, index = 0 }) => {
               </span>
             </div>
 
-            {/* Watchlist button */}
             <button
               onClick={handleWatchlistToggle}
               className={`absolute top-2 right-2 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200 ${
@@ -113,7 +109,6 @@ export const MovieCard = ({ item, index = 0 }) => {
             </button>
           </div>
 
-          {/* Info */}
           <div className="p-3">
             <h3 className="text-white text-sm font-semibold line-clamp-1 mb-0.5">
               {title}

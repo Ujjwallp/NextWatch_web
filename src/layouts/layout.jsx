@@ -1,6 +1,6 @@
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { ApiKeyBanner } from "@/components/layout/api-key-banner";
+import { Navbar } from "@/layouts/navbar";
+import { Footer } from "@/layouts/footer";
+import { ApiKeyBanner } from "@/layouts/api-key-banner";
 
 export const Layout = ({ children }) => (
   <div className="min-h-screen flex flex-col bg-[#09090B]">

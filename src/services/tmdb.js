@@ -45,47 +45,7 @@ export const getBackdropUrl = (path, size = "w1280") => {
 };
 
 
-export const GENRE_MAP = {
-  Action: 28,
-  Thriller: 53,
-  Crime: 80,
-  Mystery: 9648,
-  "Sci-Fi": 878,
-  Documentary: 99,
-  History: 36,
-  Biography: 10402,
-  Adventure: 12,
-  Horror: 27,
-  Comedy: 35,
-  Drama: 18,
-};
 
-export const TV_GENRE_MAP = {
-  Action: 10759,
-  Thriller: 9648,
-  Crime: 80,
-  Mystery: 9648,
-  "Sci-Fi": 10765,
-  Documentary: 99,
-  History: 36,
-  Biography: 10402,
-  Adventure: 10759,
-  Horror: 27,
-  Comedy: 35,
-  Drama: 18,
-};
-
-
-export const getGenres = async () => {
-  const [movieGenres, tvGenres] = await Promise.all([
-    fetchTMDB("/genre/movie/list"),
-    fetchTMDB("/genre/tv/list"),
-  ]);
-  return {
-    movies: movieGenres.genres,
-    tv: tvGenres.genres,
-  };
-};
 
 export const getTrending = async (
   mediaType = "all",
@@ -125,9 +85,7 @@ export const getPopularMovies = async (page = 1) => {
   return fetchTMDB("/movie/popular", { page });
 };
 
-export const getTopRatedMovies = async (page = 1) => {
-  return fetchTMDB("/movie/top_rated", { page });
-};
+
 
 export const getMovieDetails = async (movieId, mediaType = "movie") => {
   return fetchTMDB(`/${mediaType}/${movieId}`, {
@@ -136,13 +94,7 @@ export const getMovieDetails = async (movieId, mediaType = "movie") => {
   });
 };
 
-export const getMovieCredits = async (movieId, mediaType = "movie") => {
-  return fetchTMDB(`/${mediaType}/${movieId}/credits`);
-};
 
-export const getMovieVideos = async (movieId, mediaType = "movie") => {
-  return fetchTMDB(`/${mediaType}/${movieId}/videos`);
-};
 
 export const getWatchProviders = async (movieId, mediaType = "movie") => {
   return fetchTMDB(`/${mediaType}/${movieId}/watch/providers`);
@@ -172,17 +124,7 @@ export const searchTV = async (query, page = 1) => {
   });
 };
 
-export const getRecommendations = async (
-  movieId,
-  mediaType = "movie",
-  page = 1,
-) => {
-  return fetchTMDB(`/${mediaType}/${movieId}/recommendations`, { page });
-};
 
-export const getSimilar = async (movieId, mediaType = "movie", page = 1) => {
-  return fetchTMDB(`/${mediaType}/${movieId}/similar`, { page });
-};
 
 
 export const getYear = (dateStr) => {
@@ -206,4 +148,4 @@ export const formatRuntime = (minutes) => {
   return `${h}h ${m}m`;
 };
 
-export default fetchTMDB;
+
