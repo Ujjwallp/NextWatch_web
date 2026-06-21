@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useSearchParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { TrendingUp, Star, Flame, ChevronLeft, Film, Tv } from "lucide-react";
@@ -114,7 +114,7 @@ export const Recommendations = () => {
   const numericGenreId = parseInt(genreId);
   const tvGenreId = TV_GENRE_MAP[numericGenreId] || numericGenreId;
 
-  const loadPopular = useCallback(async () => {
+  const loadPopular = async () => {
     setPopularLoading(true);
     setPopularError(null);
     try {
@@ -132,9 +132,9 @@ export const Recommendations = () => {
     } finally {
       setPopularLoading(false);
     }
-  }, [numericGenreId, tvGenreId, popularMediaType]);
+  };
 
-  const loadTopRated = useCallback(async () => {
+  const loadTopRated = async () => {
     setTopRatedLoading(true);
     setTopRatedError(null);
     try {
@@ -152,9 +152,9 @@ export const Recommendations = () => {
     } finally {
       setTopRatedLoading(false);
     }
-  }, [numericGenreId, tvGenreId, topRatedMediaType]);
+  };
 
-  const loadTrending = useCallback(async () => {
+  const loadTrending = async () => {
     setTrendingLoading(true);
     setTrendingError(null);
     try {
@@ -175,17 +175,19 @@ export const Recommendations = () => {
     } finally {
       setTrendingLoading(false);
     }
-  }, [genreName]);
+  };
 
   useEffect(() => {
     loadPopular();
-  }, [loadPopular]);
+  }, [numericGenreId, tvGenreId, popularMediaType]);
+
   useEffect(() => {
     loadTopRated();
-  }, [loadTopRated]);
+  }, [numericGenreId, tvGenreId, topRatedMediaType]);
+
   useEffect(() => {
     loadTrending();
-  }, [loadTrending]);
+  }, [genreName]);
 
   const emoji = GENRE_EMOJIS[genreName] || "🎬";
 

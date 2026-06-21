@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  useCallback,
-} from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const WatchlistContext = createContext(null);
 
@@ -46,7 +40,7 @@ export const WatchlistProvider = ({ children }) => {
     }
   }, [watched]);
 
-  const addToWatchlist = useCallback((item) => {
+  const addToWatchlist = (item) => {
     setWatchlist((prev) => {
       const exists = prev.find(
         (w) => w.id === item.id && w.media_type === item.media_type,
@@ -60,31 +54,25 @@ export const WatchlistProvider = ({ children }) => {
         ...prev,
       ];
     });
-  }, []);
+  };
 
-  const removeFromWatchlist = useCallback((id, mediaType) => {
+  const removeFromWatchlist = (id, mediaType) => {
     setWatchlist((prev) =>
       prev.filter((w) => !(w.id === id && w.media_type === mediaType)),
     );
-  }, []);
+  };
 
-  const isInWatchlist = useCallback(
-    (id, mediaType) => {
-      return watchlist.some((w) => w.id === id && w.media_type === mediaType);
-    },
-    [watchlist],
-  );
+  const isInWatchlist = (id, mediaType) => {
+    return watchlist.some((w) => w.id === id && w.media_type === mediaType);
+  };
 
-  const toggleWatchlist = useCallback(
-    (item) => {
-      if (isInWatchlist(item.id, item.media_type)) {
-        removeFromWatchlist(item.id, item.media_type);
-      } else {
-        addToWatchlist(item);
-      }
-    },
-    [isInWatchlist, addToWatchlist, removeFromWatchlist],
-  );
+  const toggleWatchlist = (item) => {
+    if (isInWatchlist(item.id, item.media_type)) {
+      removeFromWatchlist(item.id, item.media_type);
+    } else {
+      addToWatchlist(item);
+    }
+  };
 
   const stats = {
     total: watchlist.length,
@@ -92,7 +80,7 @@ export const WatchlistProvider = ({ children }) => {
     tv: watchlist.filter((w) => w.media_type === "tv").length,
   };
 
-  const addToWatched = useCallback((item) => {
+  const addToWatched = (item) => {
     setWatched((prev) => {
       const exists = prev.find(
         (w) => w.id === item.id && w.media_type === item.media_type,
@@ -106,39 +94,31 @@ export const WatchlistProvider = ({ children }) => {
         ...prev,
       ];
     });
-  }, []);
+  };
 
-  const removeFromWatched = useCallback((id, mediaType) => {
+  const removeFromWatched = (id, mediaType) => {
     setWatched((prev) =>
       prev.filter((w) => !(w.id === id && w.media_type === mediaType)),
     );
-  }, []);
+  };
 
-  const clearWatched = useCallback(() => {
+  const clearWatched = () => {
     setWatched([]);
-  }, []);
+  };
 
-  const isInWatched = useCallback(
-    (id, mediaType) => {
-      return watched.some((w) => w.id === id && w.media_type === mediaType);
-    },
-    [watched],
-  );
+  const isInWatched = (id, mediaType) => {
+    return watched.some((w) => w.id === id && w.media_type === mediaType);
+  };
 
-  const toggleWatched = useCallback(
-    (item) => {
-      if (isInWatched(item.id, item.media_type)) {
-        removeFromWatched(item.id, item.media_type);
-      } else {
-        addToWatched(item);
-      }
-    },
-    [isInWatched, addToWatched, removeFromWatched],
-  );
+  const toggleWatched = (item) => {
+    if (isInWatched(item.id, item.media_type)) {
+      removeFromWatched(item.id, item.media_type);
+    } else {
+      addToWatched(item);
+    }
+  };
 
-
-  const markAsWatched = useCallback((item) => {
-
+  const markAsWatched = (item) => {
     setWatched((prev) => {
       const exists = prev.find(
         (w) => w.id === item.id && w.media_type === item.media_type,
@@ -152,7 +132,7 @@ export const WatchlistProvider = ({ children }) => {
         (w) => !(w.id === item.id && w.media_type === item.media_type),
       ),
     );
-  }, []);
+  };
 
   const watchedStats = {
     total: watched.length,

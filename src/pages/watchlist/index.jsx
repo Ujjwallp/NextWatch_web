@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -197,19 +197,16 @@ export const Watchlist = () => {
   const [toastVisible, setToastVisible] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
 
-  const showToast = useCallback((msg) => {
+  const showToast = (msg) => {
     setToastMessage(msg);
     setToastVisible(true);
     setTimeout(() => setToastVisible(false), 2500);
-  }, []);
+  };
 
-  const handleMarkWatched = useCallback(
-    (item) => {
-      markAsWatched(item);
-      showToast("Moved to Watched ✓");
-    },
-    [markAsWatched, showToast],
-  );
+  const handleMarkWatched = (item) => {
+    markAsWatched(item);
+    showToast("Moved to Watched ✓");
+  };
 
 
   let filtered = watchlist.filter((item) => {
